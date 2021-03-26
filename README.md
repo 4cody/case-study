@@ -6,7 +6,7 @@ We are learning Java and Spring MVC
 Cedar Drone
 
 # Idea #
-The website is for drone/quad copter reviews.  It's targer audience would be drone enthusiasts and those in the market for a drone
+The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone
 
 
 
@@ -21,5 +21,6 @@ In the first 8 weeks I payed very little to no attention to the case-study as th
 
 In week 8 is when I started to think about the database design for the project and came up with the minimum 4 tables I would need to meet a technical requirment.  This was a short lived jaunt as the introduction of Spring seemed to increase the complexity of what we were doing and the pace of subject content seems to increase in kind.  
 
-At the end of week 9 and Alas I spent no more time on my case-study but have gained a level of comfort with what we began to learn, with emphasis on getting data from a client in jsp and getting it to my backend and stored in a db.  The current focus is retrieving data from the db and displaying it to the user.  I'm struggling with the moving parts of SpringMVC yet and how it's all fitting together, monkey see monkey do at this point.  Don't ask my the about the "why's" just yet.   
+It's the end of week 9 and Alas! I've spent no more time on my case-study but have gained a level of comfort with what we began to learn, with emphasis on getting data from a client in jsp and getting it to my backend and stored in a db.  The current focus is retrieving data from the db and displaying it to the user.  I'm struggling with the moving parts of SpringMVC yet and how it's all fitting together, monkey see monkey do at this point.  Don't ask me the about the "why's" just yet.   
+
 
