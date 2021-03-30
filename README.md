@@ -8,7 +8,11 @@ Cedar Drone
 # Idea #
 The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone.  The value here is for community of people to have a place to congregate online and exchange ideas and discuss all things drone.  This is the ideal.  For the purpose of the project with the given time and requirements, I will be focusing on the functionality needed in order to create users and for those users to be able to leave reviews on different drones.  These drones "veiws" should have a specs table their reviews visible. 
 
+#Backend#
+##DataBase##
+This project is using SQL for it's database as that's what we've been learning during the training.  There are four tables, user, review, drone, and user_review.  These represent the data that will be needed to store and persist information on the site.  The first 3 are models for the entities respectively with user_review aggregating the primary keys for a given review.  As such all of the models have a one to many relationship with the user_review table.
 
+[![db-map-01.png](https://i.postimg.cc/Cx13Hznp/db-map-01.png)](https://postimg.cc/2Vs9Cjx0)
 
 
 # Blog #
