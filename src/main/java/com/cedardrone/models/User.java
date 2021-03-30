@@ -12,12 +12,10 @@ import javax.validation.constraints.Size;
 @Table(name="user")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer userId;
+	private String email;
+	@NotEmpty
 	@Size(min=2, max=25)
 	private String username;
-	@NotEmpty
-	private String email;
 	@NotEmpty
 	private String password;
 	
@@ -27,12 +25,6 @@ public class User {
 		this.username = username;
 		this.email = email;
 		this.password = password;
-	}
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
 	}
 	public String getUsername() {
 		return username;
