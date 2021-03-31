@@ -18,4 +18,39 @@ public class Review {
 	private String textBody;
 	@NotEmpty
 	private Double rating;
+	
+	public Review() {}
+
+	public Review(Integer rId, @Size(min = 10, max = 200) String textBody, @NotEmpty Double rating) {
+		super();
+		this.rId = rId;
+		this.textBody = textBody;
+		this.rating = rating;
+	}
+
+	public Integer getrId() {
+		return rId;
+	}
+
+	public void setrId(Integer rId) {
+		this.rId = rId;
+	}
+
+	public String getTextBody() {
+		return textBody;
+	}
+
+	public void setTextBody(String textBody) {
+		this.textBody = textBody;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+	
+	
 }
