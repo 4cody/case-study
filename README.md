@@ -16,7 +16,7 @@ This project is using SQL for it's database as that's what we've been learning d
 [![db-map-01.png](https://i.postimg.cc/Cx13Hznp/db-map-01.png)](https://postimg.cc/2Vs9Cjx0)
 
 
-# Blog #
+# Dev Blog #
 
 Early on in the traing when we were first made aware about a cap-stonesque project I was wavering between a couple ideas.  My considerations were in regards to whether or not I could feasibly develop the project in the given amount of time and how I could come up with an idea to meet the requirments.
 
@@ -28,4 +28,4 @@ In week 8 is when I started to think about the database design for the project a
 
 It's the end of week 9 and Alas! I've spent no more time on my case-study but have gained a level of comfort with what we began to learn, with emphasis on getting data from a client in jsp and getting it to my backend and stored in a db.  The current focus is retrieving data from the db and displaying it to the user.  I'm struggling with the moving parts of SpringMVC yet and how it's all fitting together, monkey see monkey do at this point.  Don't ask me the about the "why's" just yet.  
 
-
+As I've started to add the skeleton files that I know I'll need and build out some of the folder structure I'm thinking I'll need, I realized that I am just doing what I've always done when attempting a project.  I just start coding.  I've decided to back up a little bit and give myself a greater foundation with more planning.  The idea I have is enough to go off of but I havn't taken the time to design things before building.. and this isn't the SDLC way.  I'm going to start with writing user stories that would get me to an MVC, from there I will design some from end wire frames.  I think with these things and the database mapped out I could start implementation and revist these particulars as needed.
