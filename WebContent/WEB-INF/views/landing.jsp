@@ -14,7 +14,34 @@
 </head>
 <body>
 
-	<h1> Landing JSP </h1>
+<div class="landing-wrapper">
+	
+	<section class="landing-header"></section>
+
+	<main class="landing-main">
+	
+		<section class="landing-main-section">
+			
+			<h1>Cedar Drone</h1>
+			
+			<a href="./register">Become a Member</a>
+			
+		</section>
+		<section class="landing-main-section">
+		
+			<form>
+				<input type="text" placeholder="User Name" />
+				<input type="text" placeholder="Password" />
+				<input type="submit" value="Login">
+			</form>
+		
+		</section>
+		
+	</main>
+	
+	<section class="landing-footer"></section>
+
+</div>
 
 </body>
 </html>

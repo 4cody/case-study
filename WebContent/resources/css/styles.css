@@ -4,6 +4,37 @@
 	box-sizing: border-box;
 }
 
-h1 {
-	color: blue;
+body, html {
+	height: 100%;
+}
+
+.landing-wrapper {
+	height: 100vh;
+	display: grid;
+	grid-template-areas: 
+		"h"
+		"m"
+		"f";
+}
+
+.landing-header {
+	height: 40px;
+	background-color: grey;
+	grid-area: "h";
+}
+
+.landing-footer {
+	height: 90px;
+	background-color: grey;
+	grid-area: "f";
+}
+
+.landing-main {
+	grid-area: "m";
+	display:flex;
+}
+
+.landing-main-section {
+	flex: 1;
+	border: 1px solid black;	
 }
