@@ -19,8 +19,8 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
-//	public User findUserByUsername(String username) {
-//		return com.cedardrone.repository.UserRepository.findUserByUsername(username);
+//	public User findByUsername(String username) {
+//		return com.cedardrone.repository.UserRepository.findByUsername(username);
 //	}
 }
 

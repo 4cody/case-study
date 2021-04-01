@@ -1,5 +1,6 @@
 package com.cedardrone.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class User {
 	@NotEmpty
 	@Size(min=2, max=25)
 	private String username;
-	@NotEmpty
+	@Column(name="password", length=30, nullable=false)
 	private String password;
 	
 	public User() {}

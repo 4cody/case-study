@@ -1,5 +1,6 @@
 package com.cedardrone.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,23 +12,24 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name="drone")
 public class Drone {
+	// todo-strech : make Id a composite key of make/model
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer dId;
-	@NotEmpty
+	@Column(name="make", length=50, nullable=false)
 	private String make;
-	@NotEmpty
+	@Column(name="model", length=50, nullable=false)
 	private String model;
-	@NotEmpty
+	@Column(name="price", length=50, nullable=false)
 	private double price;
-	@NotEmpty
+	@Column(name="weight", length=50, nullable=false)
 	private double weight;
 	private Integer cameraRes;
-	@NotEmpty
+	@Column(name="maxspeed", length=3, nullable=false)
 	private Integer maxSpeed;
-	@NotEmpty
+	@Column(name="maxrange", length=3, nullable=false)
 	private Integer maxRange;
-	@NotEmpty
+	@Column(name="category", length=50, nullable=false)
 	private String category;
 	@NotEmpty
 	private double rating;

@@ -27,7 +27,7 @@
 			<form:errors path="password" />
 		</div>
 		<div>
-			<input type="submit" value="Login" />
+			<input type="submit" value="Register" />
 		</div>
 	</form:form> 
 

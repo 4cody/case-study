@@ -11,7 +11,7 @@
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/fullstacktest" />
+				value="jdbc:mysql://localhost:3306/casestudy" />
 			<property name="javax.persistence.jdbc.user" value="tester" />
 			<property name="javax.persistence.jdbc.password"
 				value="tester" />
@@ -19,7 +19,7 @@
 				value="com.mysql.jdbc.Driver" />
 			<property
 				name="javax.persistence.schema-generation.database.action"
-				value="create-and-update-tables" />
+				value="drop-and-create" />
 				
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />

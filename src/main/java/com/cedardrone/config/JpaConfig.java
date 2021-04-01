@@ -16,7 +16,7 @@ public class JpaConfig {
 	@Bean
 	public LocalEntityManagerFactoryBean entityManagerFactory() {
 		LocalEntityManagerFactoryBean factoryBean = new LocalEntityManagerFactoryBean();
-		factoryBean.setPersistenceUnitName("FullStack_Example");
+		factoryBean.setPersistenceUnitName("caseStudy");
 
 		return factoryBean;
 	}

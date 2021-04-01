@@ -43,6 +43,12 @@ public class MainController {
 		}
 		
 		userService.saveUser(user);
-		return "redirect:/login";
+		return "redirect:/welcome";
+	}
+	
+	@GetMapping("/welcome")
+	public String showWelcomePage(Model model) {
+		model.addAttribute("user", new User());
+		return "welcome";
 	}
 }
