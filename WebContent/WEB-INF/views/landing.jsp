@@ -29,9 +29,9 @@
 		</section>
 		<section class="landing-main-section">
 		
-			<form>
-				<input type="text" placeholder="User Name" />
-				<input type="text" placeholder="Password" />
+			<form action="./login" method="post">
+				<input type="text" name="username" placeholder="User Name" />
+				<input type="text" name="password" placeholder="Password" />
 				<input type="submit" value="Login">
 			</form>
 		

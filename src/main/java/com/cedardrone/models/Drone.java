@@ -31,7 +31,7 @@ public class Drone {
 	private Integer maxRange;
 	@Column(name="category", length=50, nullable=false)
 	private String category;
-	@NotEmpty
+	@Column(name="rating", length=5, nullable=false)
 	private double rating;
 	
 	public Drone() {}
@@ -114,7 +114,13 @@ public class Drone {
 	public void setRating(double rating) {
 		this.rating = rating;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Drone [dId=" + dId + ", make=" + make + ", model=" + model + ", price=" + price + ", weight=" + weight
+				+ ", cameraRes=" + cameraRes + ", maxSpeed=" + maxSpeed + ", maxRange=" + maxRange + ", category="
+				+ category + ", rating=" + rating + "]";
+	}
 	
 }
 
