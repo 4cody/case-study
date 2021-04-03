@@ -11,7 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cedardrone.models.Drone;
@@ -41,14 +44,11 @@ public class MainController {
 		
 		try {
 			User user = userService.findByUsername(username);
-			List<Drone> drones = droneService.getAllDrones();
-			
-			drones.forEach(d -> System.out.println(d.toString()));
 			
 			if(user != null && password.equals(user.getPassword())) {
 				session.setAttribute("currentUser", user);
 				
-				return "welcome";
+				return "redirect:/welcome";
 			}
 			
 		} catch(Exception e) {
@@ -79,8 +79,29 @@ public class MainController {
 	}
 	
 	@GetMapping("/welcome")
-	public String showWelcomePage(Model model) {
-		model.addAttribute("user", new User());
+	public String showWelcomePage(Model model, HttpSession session) {
+		
+		System.out.println("WELCOME GET ROUTE WAS HIT");
+		
+		List<Drone> drones = droneService.getAllDrones();
+		drones.forEach(d -> System.out.println(d.toString()));
+		
+		session.setAttribute("droneList", drones);
+		
+//		model.addAttribute("user", new User());
 		return "welcome";
 	}
+	
+	@RequestMapping(value = "/drones/{droneId}/", method = RequestMethod.GET)
+	public String printWelcome(@PathVariable("droneId") Integer droneId, Model model, BindingResult request) {
+		System.out.println("Drone view was hit");
+		Drone d = droneService.findByDroneId(droneId);
+		System.out.println("Drone: ");
+		System.out.println(d.toString());
+		
+		model.addAttribute("currentDrone", d);
+		
+		return "drone";
+	}
+	
 }

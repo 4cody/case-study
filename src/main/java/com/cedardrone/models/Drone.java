@@ -15,7 +15,7 @@ public class Drone {
 	// todo-strech : make Id a composite key of make/model
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer dId;
+	private Integer droneId;
 	@Column(name="make", length=50, nullable=false)
 	private String make;
 	@Column(name="model", length=50, nullable=false)
@@ -36,11 +36,11 @@ public class Drone {
 	
 	public Drone() {}
 	
-	public Drone(Integer dId, @NotEmpty String make, @NotEmpty String model, @NotEmpty double price,
+	public Drone(Integer droneId, @NotEmpty String make, @NotEmpty String model, @NotEmpty double price,
 			@NotEmpty double weight, Integer cameraRes, @NotEmpty Integer maxSpeed, @NotEmpty Integer maxRange,
 			@NotEmpty String category, @NotEmpty double rating) {
 		super();
-		this.dId = dId;
+		this.droneId = droneId;
 		this.make = make;
 		this.model = model;
 		this.price = price;
@@ -54,11 +54,11 @@ public class Drone {
 
 
 
-	public Integer getdId() {
-		return dId;
+	public Integer getDroneId() {
+		return droneId;
 	}
-	public void setdId(Integer dId) {
-		this.dId = dId;
+	public void setDroneId(Integer dId) {
+		this.droneId = dId;
 	}
 	public String getMake() {
 		return make;
@@ -117,7 +117,7 @@ public class Drone {
 
 	@Override
 	public String toString() {
-		return "Drone [dId=" + dId + ", make=" + make + ", model=" + model + ", price=" + price + ", weight=" + weight
+		return "Drone [droneId=" + droneId + ", make=" + make + ", model=" + model + ", price=" + price + ", weight=" + weight
 				+ ", cameraRes=" + cameraRes + ", maxSpeed=" + maxSpeed + ", maxRange=" + maxRange + ", category="
 				+ category + ", rating=" + rating + "]";
 	}

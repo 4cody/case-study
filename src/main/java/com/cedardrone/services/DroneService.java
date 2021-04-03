@@ -25,8 +25,8 @@ public class DroneService {
 		droneRepository.save(drone);
 	}
 	
-//	public User findByUsername(String username) {
-//		return userRepository.findByUsername(username);
-//	}
+	public Drone findByDroneId(int droneId) {
+		return droneRepository.findByDroneId(droneId);
+	}
 
 }
