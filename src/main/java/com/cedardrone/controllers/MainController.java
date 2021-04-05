@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cedardrone.models.Drone;
+import com.cedardrone.models.Review;
 import com.cedardrone.models.User;
 import com.cedardrone.services.DroneService;
 import com.cedardrone.services.UserService;
@@ -40,7 +41,7 @@ public class MainController {
 	}
 	
 	@PostMapping("/login")
-	public String processLoginRequest(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpSession session) {
+	public String handleLoginRequest(@RequestParam("username") String username, @RequestParam("password") String password, Model model, HttpSession session) {
 		
 		try {
 			User user = userService.findByUsername(username);
@@ -80,28 +81,53 @@ public class MainController {
 	
 	@GetMapping("/welcome")
 	public String showWelcomePage(Model model, HttpSession session) {
-		
-		System.out.println("WELCOME GET ROUTE WAS HIT");
+
 		
 		List<Drone> drones = droneService.getAllDrones();
-		drones.forEach(d -> System.out.println(d.toString()));
+//		drones.forEach(d -> System.out.println(d.toString()));
 		
 		session.setAttribute("droneList", drones);
 		
+		model.addAttribute("drone", new Drone());
 //		model.addAttribute("user", new User());
 		return "welcome";
 	}
 	
-	@RequestMapping(value = "/drones/{droneId}/", method = RequestMethod.GET)
-	public String printWelcome(@PathVariable("droneId") Integer droneId, Model model, BindingResult request) {
-		System.out.println("Drone view was hit");
-		Drone d = droneService.findByDroneId(droneId);
+	@RequestMapping(value="/drones/{droneId}", method = RequestMethod.GET)
+//	@GetMapping("/drones/{droneId}")
+//	public String printWelcome(@PathVariable String droneId, Model model, BindingResult result) {
+	public String printWelcome(@PathVariable String droneId, Model model) {
+
+		
+//		if(result.hasErrors()) {
+//			return "welcome";
+//		}
+		
+		Drone d = droneService.findByDroneId(Integer.parseInt(droneId));
 		System.out.println("Drone: ");
 		System.out.println(d.toString());
 		
+//		model.addAttribute("drone", new Drone());
 		model.addAttribute("currentDrone", d);
 		
 		return "drone";
+	}
+	
+	@GetMapping("/drones/{droneId}/review")
+	public String showLeaveReviewPage(Model model) {
+		model.addAttribute("review", new Review());
+		return "review";
+	}
+	
+	@PostMapping("/drones/{droneId}/review")
+	public String handleNewReview(@Valid @ModelAttribute("review") Review review, BindingResult result) {
+		System.out.println(review.toString());
+		
+		if(result.hasErrors()) {
+			return "register";
+		}
+		
+		return "redirect:/welcome";
 	}
 	
 }

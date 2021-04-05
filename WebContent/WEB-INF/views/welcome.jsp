@@ -10,8 +10,6 @@
 <body>
  <h1>Welcome Page</h1>
  
- 
- 
 <c:forEach items="${droneList}" var="drone">
     <p>${drone.make}</p><br/>
     <p>${drone.model}</p><br/>

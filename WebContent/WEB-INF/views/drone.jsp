@@ -14,5 +14,8 @@
 <p>${currentDrone.model}</p>
 <p>${currentDrone.rating}</p>
 
+
+<h3>Leave a <a href="./${currentDrone.droneId}/review">review</a> on this drone</h3>
+
 </body>
 </html>
