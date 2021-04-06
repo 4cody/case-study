@@ -1,5 +1,6 @@
 package com.cedardrone.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +15,14 @@ public class Review {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer rId;
-	@Size(min=10, max=200)
+	@Column(name="textBody", length=200, nullable=false)
 	private String textBody;
-	@NotEmpty
+	@Column(name="rating", length=1, nullable=false)
 	private Double rating;
 	
 	public Review() {}
 
-	public Review(Integer rId, @Size(min = 10, max = 200) String textBody, @NotEmpty Double rating) {
+	public Review(Integer rId, String textBody, Double rating) {
 		super();
 		this.rId = rId;
 		this.textBody = textBody;

@@ -14,7 +14,7 @@
     <p>${drone.make}</p><br/>
     <p>${drone.model}</p><br/>
 	<p>${drone.weight}</p>
-	<a href="./drones/${drone.droneId}">Review</a>
+	<a href="./drones/${drone.droneId}">FOCUS DRONE</a>
 </c:forEach>
  
 </body>

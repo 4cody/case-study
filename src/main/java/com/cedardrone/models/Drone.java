@@ -1,13 +1,15 @@
 package com.cedardrone.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="drone")
@@ -33,12 +35,13 @@ public class Drone {
 	private String category;
 	@Column(name="rating", length=5, nullable=false)
 	private double rating;
+	@OneToMany(targetEntity = Review.class)
+	private List<Review> reviewList = new ArrayList<Review>();
 	
 	public Drone() {}
 	
-	public Drone(Integer droneId, @NotEmpty String make, @NotEmpty String model, @NotEmpty double price,
-			@NotEmpty double weight, Integer cameraRes, @NotEmpty Integer maxSpeed, @NotEmpty Integer maxRange,
-			@NotEmpty String category, @NotEmpty double rating) {
+	public Drone(Integer droneId, String make, String model, double price, double weight, Integer cameraRes,
+			Integer maxSpeed, Integer maxRange, String category, double rating, List<Review> reviewList) {
 		super();
 		this.droneId = droneId;
 		this.make = make;
@@ -50,69 +53,95 @@ public class Drone {
 		this.maxRange = maxRange;
 		this.category = category;
 		this.rating = rating;
+		this.reviewList = reviewList;
 	}
-
-
 
 	public Integer getDroneId() {
 		return droneId;
 	}
-	public void setDroneId(Integer dId) {
-		this.droneId = dId;
+
+	public void setDroneId(Integer droneId) {
+		this.droneId = droneId;
 	}
+
 	public String getMake() {
 		return make;
 	}
+
 	public void setMake(String make) {
 		this.make = make;
 	}
+
 	public String getModel() {
 		return model;
 	}
+
 	public void setModel(String model) {
 		this.model = model;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
 	public double getWeight() {
 		return weight;
 	}
+
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
+
 	public Integer getCameraRes() {
 		return cameraRes;
 	}
+
 	public void setCameraRes(Integer cameraRes) {
 		this.cameraRes = cameraRes;
 	}
+
 	public Integer getMaxSpeed() {
 		return maxSpeed;
 	}
+
 	public void setMaxSpeed(Integer maxSpeed) {
 		this.maxSpeed = maxSpeed;
 	}
+
 	public Integer getMaxRange() {
 		return maxRange;
 	}
+
 	public void setMaxRange(Integer maxRange) {
 		this.maxRange = maxRange;
 	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 	public double getRating() {
 		return rating;
 	}
+
 	public void setRating(double rating) {
 		this.rating = rating;
+	}
+
+	public List<Review> getReviewList() {
+		return reviewList;
+	}
+
+	public void setReviewList(List<Review> reviewList) {
+		this.reviewList = reviewList;
 	}
 
 	@Override
