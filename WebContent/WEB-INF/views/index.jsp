@@ -7,41 +7,53 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cedar Drone</title>
-
-	<spring:url value="/resources/css/styles.css" var="mainCss"/>
-	<link href="${mainCss}" rel="stylesheet" />
-	
+<spring:url value="/resources/css/landing.css" var="landingCss"/>
+<link href="${landingCss}" rel="stylesheet" />
+<spring:url value="/resources/vid/flight.mp4" var="landingVideo"/>
 </head>
 <body>
 
-<div class="landing-wrapper">
-	
-	<section class="landing-header"></section>
+<header></header>
 
-	<main class="landing-main">
-	
-		<section class="landing-main-section">
-			
+    <video autoplay muted loop id="myVideo">
+        <source src="${landingVideo}" type="video/mp4">
+    </video>
+
+    <div class="container">
+        
+        <section>
 			<h1>Cedar Drone</h1>
 			
 			<a href="./register">Become a Member</a>
-			
-		</section>
-		<section class="landing-main-section">
-		
+        </section>
+        <section>
 			<form action="./login" method="post">
 				<input type="text" name="username" placeholder="User Name" />
 				<input type="text" name="password" placeholder="Password" />
 				<input type="submit" value="Login">
 			</form>
-		
-		</section>
-		
-	</main>
-	
-	<section class="landing-footer"></section>
 
-</div>
+        </section>
+
+    </div>
+
+<footer></footer>
+
+<script>
+
+    window.onload = function() {
+        myFunc();
+    };
+
+    const h = document.querySelector('header');
+    const f = document.querySelector('footer');
+
+    const myFunc = () => {
+        h.classList.add('reduceHeight')
+        f.classList.add('reduceHeight')
+    }
+
+</script>
 
 </body>
 </html>

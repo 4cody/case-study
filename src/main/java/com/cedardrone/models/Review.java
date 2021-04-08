@@ -19,14 +19,15 @@ public class Review {
 	private String textBody;
 	@Column(name="rating", length=1, nullable=false)
 	private Double rating;
+	@Column(name="author", nullable=false)
+	private String author;
 	
 	public Review() {}
 
-	public Review(Integer rId, String textBody, Double rating) {
-		super();
-		this.rId = rId;
+	public Review(String textBody, Double rating, String author) {
 		this.textBody = textBody;
 		this.rating = rating;
+		this.author = author;
 	}
 
 	public Integer getrId() {
@@ -52,6 +53,13 @@ public class Review {
 	public void setRating(Double rating) {
 		this.rating = rating;
 	}
-	
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 	
 }

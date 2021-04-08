@@ -84,7 +84,7 @@ public class MainController {
 		
 		userService.saveUser(user);
 		
-		return "redirect:/welcome";
+		return "index";
 	}
 	
 	@GetMapping("/welcome")
@@ -104,7 +104,6 @@ public class MainController {
 		List<Review> r = d.getReviewList();
 
 		model.addAttribute("currentDrone", d);
-		
 		model.addAttribute("reviewList", r);
 		
 		return "drone";
@@ -119,28 +118,18 @@ public class MainController {
 	}
 	
 	@PostMapping("/drones/{droneId}/review")
-	public String handleDroneReview(@PathVariable String droneId,@Valid @ModelAttribute("review") Review review, BindingResult result) {				
-		Drone d = droneService.findByDroneId(Integer.parseInt(droneId));
+	public String handleDroneReview(@PathVariable String droneId,@Valid @ModelAttribute("review") Review review, BindingResult result, HttpSession session) {				
+
+		User user = (User) session.getAttribute("currentUser");
 		
-//		User u = (User) session.getAttribute("currentUser");
+		review.setAuthor(user.getEmail());
 		
-//		List<Review> rl = u.getReviewList();
+//		Review review = new Review()
 		
-//		rl.add(review);
-		
-//		u.setReviewList(rl);
-		
-//		List<Review> droneReviewList = d.getReviewList();
-//		droneReviewList.add(review);
-//		d.setReviewList(droneReviewList);
-		
-//		userService.saveUser(u);
-		droneService.saveReview(Integer.parseInt(droneId), review);
-//		reviewService.saveReview(review);
-		
-//		userService;
-		
-//		User u = (User) session.getAttribute("currentUser");
+		if(!droneService.saveReview(Integer.parseInt(droneId), review )) {
+			System.out.println("Can't leave multiple reviews");
+			return "redirect:/drones/{droneId}";
+		}
 
 		
 		return "redirect:/drones/{droneId}";

@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name="drone")
 public class Drone {
-	// todo-strech : make Id a composite key of make/model
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer droneId;
@@ -26,23 +25,27 @@ public class Drone {
 	private double price;
 	@Column(name="weight", length=50, nullable=false)
 	private double weight;
-	private Integer cameraRes;
+	@Column(name="cameraRes", length=5)
+	private String cameraRes;
 	@Column(name="maxspeed", length=3, nullable=false)
 	private Integer maxSpeed;
 	@Column(name="maxrange", length=3, nullable=false)
 	private Integer maxRange;
 	@Column(name="category", length=50, nullable=false)
 	private String category;
-	@Column(name="rating", length=5, nullable=false)
+	@Column(name="rating")
 	private double rating;
 	@OneToMany(targetEntity = Review.class)
 	private List<Review> reviewList = new ArrayList<Review>();
-	
+	@Column(name="imageName")
+	private String imageName;
+
 	public Drone() {}
 	
-	public Drone(Integer droneId, String make, String model, double price, double weight, Integer cameraRes,
-			Integer maxSpeed, Integer maxRange, String category, double rating, List<Review> reviewList) {
-		super();
+
+	public Drone(Integer droneId, String make, String model, double price, double weight, String cameraRes,
+			Integer maxSpeed, Integer maxRange, String category, double rating, List<Review> reviewList,
+			String imageName) {
 		this.droneId = droneId;
 		this.make = make;
 		this.model = model;
@@ -54,95 +57,152 @@ public class Drone {
 		this.category = category;
 		this.rating = rating;
 		this.reviewList = reviewList;
+		this.imageName = imageName;
 	}
 
 	public Integer getDroneId() {
 		return droneId;
 	}
 
+
+
 	public void setDroneId(Integer droneId) {
 		this.droneId = droneId;
 	}
+
+
 
 	public String getMake() {
 		return make;
 	}
 
+
+
 	public void setMake(String make) {
 		this.make = make;
 	}
+
+
 
 	public String getModel() {
 		return model;
 	}
 
+
+
 	public void setModel(String model) {
 		this.model = model;
 	}
+
+
 
 	public double getPrice() {
 		return price;
 	}
 
+
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+
 
 	public double getWeight() {
 		return weight;
 	}
 
+
+
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 
-	public Integer getCameraRes() {
+
+
+	public String getCameraRes() {
 		return cameraRes;
 	}
 
-	public void setCameraRes(Integer cameraRes) {
+
+
+	public void setCameraRes(String cameraRes) {
 		this.cameraRes = cameraRes;
 	}
+
+
 
 	public Integer getMaxSpeed() {
 		return maxSpeed;
 	}
 
+
+
 	public void setMaxSpeed(Integer maxSpeed) {
 		this.maxSpeed = maxSpeed;
 	}
+
+
 
 	public Integer getMaxRange() {
 		return maxRange;
 	}
 
+
+
 	public void setMaxRange(Integer maxRange) {
 		this.maxRange = maxRange;
 	}
+
+
 
 	public String getCategory() {
 		return category;
 	}
 
+
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+
 
 	public double getRating() {
 		return rating;
 	}
 
+
+
 	public void setRating(double rating) {
 		this.rating = rating;
 	}
+
+
 
 	public List<Review> getReviewList() {
 		return reviewList;
 	}
 
+
+
 	public void setReviewList(List<Review> reviewList) {
 		this.reviewList = reviewList;
 	}
+
+
+
+	public String getImageName() {
+		return imageName;
+	}
+
+
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+
 
 	@Override
 	public String toString() {

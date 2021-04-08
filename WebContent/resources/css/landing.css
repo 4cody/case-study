@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  filter: blur(2px);
+  z-index: -10;
+}
+
+header {
+    width: 100%;
+    background-color: black;
+    height: 50vh;
+    position: fixed;
+    top: 0;
+    transition: height 3s;
+}
+
+footer {
+    width: 100%;
+    background-color: black;
+    height: 50vh;
+    position: fixed;
+    bottom: 0;
+    transition: height 3s;
+}
+
+.reduceHeight {
+    height: 20vh;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    width: 500px;
+    height: 400px;
+    margin: 7em;
+    border-radius: 14px;
+    background-color: rgba(200,200,200,.5);
+    display: grid;
+    place-content: center;
+}
+
+    section h1 {
+        font-size: 3em;
+        padding: .4em;
+    }
+    
+    section a {
+        font-size: 1.4em;
+        text-align: center;
+    }
+
+    section form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form input {
+        padding: .8em;
+        margin: 1.4em;
+        font-size: 1em;
+    }
+
+    form input[type=text]:focus{
+        background-color: rgb(200, 200, 240);
+    }
+
+    form input[type=submit] {
+        border-radius: 5px;
+    }
+
+    form input[type=submit]:hover {
+        background-color: rgb(200, 200, 240);
+    }
