@@ -9,14 +9,18 @@ import com.cedardrone.models.Drone;
 import com.cedardrone.models.Review;
 import com.cedardrone.models.User;
 import com.cedardrone.repository.DroneRepository;
+import com.cedardrone.repository.ReviewRepository;
 
 @Service
 public class DroneService {
 	private DroneRepository droneRepository;
+	private ReviewRepository reviewRepository;
+	
 	
 	@Autowired
-	public DroneService(DroneRepository droneRepository) {
+	public DroneService(DroneRepository droneRepository, ReviewRepository reviewRepository) {
 		this.droneRepository = droneRepository;
+		this.reviewRepository = reviewRepository;
 	}
 	
 	public List<Drone> getAllDrones(){
@@ -31,13 +35,14 @@ public class DroneService {
 		return droneRepository.findByDroneId(droneId);
 	}
 	
-	public Boolean saveReview(int droneId, Review review) {
+	public boolean saveReview(int droneId, Review review) {
 		// Get drone's list of reviews
 		Drone d = droneRepository.findByDroneId(droneId);
 		List<Review> droneReviews = d.getReviewList();
 		
+		// Check if user has left a review on drone
 		for(Review r: droneReviews) {
-			if(r.getAuthor().equals(review.getAuthor())) {
+			if(r.getUser().getEmail().equals(review.getUser().getEmail())) {
 				return false;
 			}
 		}
@@ -59,17 +64,55 @@ public class DroneService {
 		return true;
 	}
 	
-//	public double updateRating(int droneId, double rating) {
-//		// Get drone's current rating
-//		Drone d = droneRepository.findByDroneId(droneId);
-//		double r = d.getRating();
-//		
-//		// Get # of reviews on drone
-//		int s = d.getReviewList().size();
-//		
-//		// Calculate new average rating and return
-//		return (r+ rating / s);
-//
-//	}
+	public boolean updateRating(int droneId, double newRating, int rId) {
+		
+		try {
+			// Get drone's review list
+			Drone d = droneRepository.findByDroneId(droneId);
+			List<Review> droneReviews = d.getReviewList();
+
+			double tempTotal = 0.0;
+		
+			// Recalculate rating average
+			for(Review r: droneReviews) {
+				tempTotal += r.getRating();
+			}
+			d.setRating(tempTotal = tempTotal / droneReviews.size());
+			
+			// Persist changes
+			saveDrone(d);
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+
+	}
+	
+	public boolean removeReview(int rId, int droneId) {
+		
+		try {
+			Drone d = droneRepository.findByDroneId(droneId);
+
+			Review r = reviewRepository.findByRId(rId);
+			
+			List<Review> newList = d.getReviewList();
+			newList.remove(r);
+			
+			d.setReviewList(newList);
+			
+			droneRepository.save(d);
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+
+		
+	}
 
 }

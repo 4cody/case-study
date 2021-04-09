@@ -3,6 +3,7 @@ package com.cedardrone.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class Drone {
 	private String category;
 	@Column(name="rating")
 	private double rating;
-	@OneToMany(targetEntity = Review.class)
+	@OneToMany(targetEntity = Review.class, orphanRemoval = true, cascade = CascadeType.PERSIST)
 	private List<Review> reviewList = new ArrayList<Review>();
 	@Column(name="imageName")
 	private String imageName;
@@ -44,7 +45,7 @@ public class Drone {
 	
 
 	public Drone(Integer droneId, String make, String model, double price, double weight, String cameraRes,
-			Integer maxSpeed, Integer maxRange, String category, double rating, List<Review> reviewList,
+			Integer maxSpeed, Integer maxRange, String category, double rating, List<Review> reviewList, 
 			String imageName) {
 		this.droneId = droneId;
 		this.make = make;

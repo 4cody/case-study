@@ -10,28 +10,31 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name="user")
 public class User {
 	@Id
+	@Email
 	private String email;
 	@NotEmpty
 	@Size(min=2, max=25)
 	private String username;
-	@Column(name="password", length=30, nullable=false)
+	@Column(name="password", nullable=false)
+	@Size(min=4, max=20)
 	private String password;
-//	@OneToMany(targetEntity = Review.class)
-//	private List<Review> reviewList;
+	@OneToMany(targetEntity = Review.class)
+	private List<Review> reviewList;
 	
 	public User() {}
 
-	public User(String email, @NotEmpty @Size(min = 2, max = 25) String username, String password) {
+	public User(String email, @NotEmpty @Size(min = 2, max = 25) String username, String password, List<Review> reviewList) {
 		super();
 		this.email = email;
 		this.username = username;
 		this.password = password;
-//		this.reviewList = reviewList;
+		this.reviewList = reviewList;
 	}
 
 	public String getEmail() {
@@ -58,13 +61,13 @@ public class User {
 		this.password = password;
 	}
 
-//	public List<Review> getReviewList() {
-//		return reviewList;
-//	}
-//
-//	public void setReviewList(List<Review> reviewList) {
-//		this.reviewList = reviewList;
-//	}
+	public List<Review> getReviewList() {
+		return reviewList;
+	}
+
+	public void setReviewList(List<Review> reviewList) {
+		this.reviewList = reviewList;
+	}
 
 	@Override
 	public String toString() {

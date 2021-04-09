@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -97,42 +99,68 @@ public class MainController {
 		return "welcome";
 	}
 	
-	@RequestMapping(value="/drones/{droneId}", method = RequestMethod.GET)
-	public String showDronePage(@PathVariable String droneId, Model model, HttpSession session) {
-
-		Drone d = droneService.findByDroneId(Integer.parseInt(droneId));
-		List<Review> r = d.getReviewList();
-
-		model.addAttribute("currentDrone", d);
-		model.addAttribute("reviewList", r);
-		
-		return "drone";
-	}
-	
-	@GetMapping("/drones/{droneId}/review")
-	public String showLeaveReviewPage(Model model) {
-
-		model.addAttribute("review", new Review());
-		
-		return "review";
-	}
-	
-	@PostMapping("/drones/{droneId}/review")
-	public String handleDroneReview(@PathVariable String droneId,@Valid @ModelAttribute("review") Review review, BindingResult result, HttpSession session) {				
-
-		User user = (User) session.getAttribute("currentUser");
-		
-		review.setAuthor(user.getEmail());
-		
-//		Review review = new Review()
-		
-		if(!droneService.saveReview(Integer.parseInt(droneId), review )) {
-			System.out.println("Can't leave multiple reviews");
-			return "redirect:/drones/{droneId}";
-		}
-
-		
-		return "redirect:/drones/{droneId}";
-	}
+//	@RequestMapping(value="/drones/{droneId}", method = RequestMethod.GET)
+//	public String showDronePage(@PathVariable String droneId, Model model, HttpSession session) {
+//
+//		Drone d = droneService.findByDroneId(Integer.parseInt(droneId));
+//		List<Review> r = d.getReviewList();
+//
+//		model.addAttribute("currentDrone", d);
+//		model.addAttribute("reviewList", r);
+//		
+//		return "drone";
+//	}
+//	
+//	@GetMapping("/drones/{droneId}/review")
+//	public String showLeaveReviewPage(Model model) {
+//
+//		model.addAttribute("review", new Review());
+//		
+//		return "review";
+//	}
+//	
+//	@PostMapping("/drones/{droneId}/review")
+//	public String handleDroneReview(@PathVariable String droneId,@Valid @ModelAttribute("review") Review review, BindingResult result, HttpSession session) {				
+//
+//		User user = (User) session.getAttribute("currentUser");
+//		
+//		review.setUser(user);
+//		
+//		if(!droneService.saveReview(Integer.parseInt(droneId), review )) {
+//			System.out.println("Can't leave multiple reviews");
+//			return "redirect:/drones/{droneId}";
+//		}
+//
+//		
+//		return "redirect:/drones/{droneId}";
+//	}
+//	
+//	@RequestMapping(value="/drones/{droneId}/review/{rId}/edit", method = RequestMethod.GET)
+//	public String showEditReviewPage(@PathVariable String rId, Model model) {
+//		Review review = reviewService.findByRid(Integer.parseInt(rId));
+//		
+//		model.addAttribute("reviewToEdit", review);
+//		
+//		return "edit_review";
+//	}
+//	
+//	@PostMapping("/drones/{droneId}/review/{rId}/edit")
+//	public String handleEditReview(@PathVariable String rId, @ModelAttribute("reviewToEdit") Review review, BindingResult result) {
+//
+//		
+//		if(reviewService.editReview(review, Integer.parseInt(rId))) {
+//			return "redirect:/drones/{droneId}";
+//		}
+//		
+//		return "redirect:/welcome";
+//		
+//	}
+//	
+////	@DeleteMapping("/reviews/{rId}/delete")
+////	public String handleDeleteReview(@PathVariable String droneId) {
+////		System.out.println("Delete mapping was hit");
+////		
+////		return "redirect:/drones/{droneId}";
+////	}
 	
 }
