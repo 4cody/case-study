@@ -6,12 +6,14 @@ We are learning Java and Spring MVC
 #### Cedar Drone
 
 # Idea #
-The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone.  The value here is for community of people to have a place to congregate online and exchange ideas and discuss all things drone.  This is the ideal.  For the purpose of the project with the given time and requirements, I will be focusing on the functionality needed in order to create users and for those users to be able to leave reviews on different drones.  These drones "veiws" should have a specs table their reviews visible. 
+The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone.  The value here is for community of people to have a place to congregate online and exchange ideas and discuss all things drone.  This is the ideal.  For the purpose of the project with the given time and requirements, I will be focusing on the functionality needed in order to create users and for those users to be able to leave reviews on different drones.  These drone "veiws" should have a specs table their reviews visible. 
 
 # User Stories #
 - As a User I want to be able to leave reviews on drones to inform others aboout a drone
 - As a Consumer I want to be able to view drone specs and reviews in order to make an informed buying decision
 - As a User I want to be able edit or delete my review from a drone
+- As a User I want to be have the ability to see all reviews I've left so I can easily find and edit a given review
+- As a developer I want to prevent users from leaving multiple reviews on a single drone to prevent spam
 
 ## Technologies Used 
 - Java 
