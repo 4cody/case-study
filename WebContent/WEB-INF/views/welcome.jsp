@@ -15,6 +15,10 @@
 	font-weight: bolder;
 }
 
+body {
+	background-color: rgb(184, 184, 181);
+}
+
 .container {
 	width: 900px;
 	height: auto;

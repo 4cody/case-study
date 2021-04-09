@@ -12,6 +12,50 @@
 <spring:url value="/resources/images/${currentDrone.imageName}"
 	var="imageSrc" />
 
+<style>
+.review_container {
+	display: flex;
+	border: 1px solid black;
+	height: 150px;
+	margin: 1rem 0;
+}
+
+.sub_container {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	font-size: 2rem;
+	font-weight: bolder;
+}
+
+.sub_container h5 {
+	flex: 1;
+	display: grid;
+	place-content: center;
+}
+
+.sub_container p {
+	flex: 1;
+}
+
+.review_container p {
+	flex: 4;
+	display: grid;
+	place-content: center;
+}
+
+.review_container .edit_button_spacer {
+	flex: 1;
+	display: grid;
+	place-content: center;
+}
+
+.edit_button_spacer a {
+
+}
+
+</style>
+
 </head>
 <body>
 	<div style="margin: 2rem auto; width: 900px;">
@@ -77,20 +121,24 @@
 
 		<c:forEach items="${reviewList}" var="review">
 			<div class="review_container">
-				<p>${review.user.username}</p>
-				<p>${review.textBody}</p>
-				<p>${review.rating}</p>
-				<c:choose>
-					<c:when test="${review.user.email == currentUser.email}">
-						<a
-							href="/caseStudy/drones/${currentDrone.droneId}/review/${review.rId}/edit">Edit</a>
-							
-							<form action="/caseStudy/drones/${currentDrone.droneId}/review/${review.rId}/delete" method="post">
-								<input type="submit" value="Delete" />
-							</form>
 
-					</c:when>
-				</c:choose>
+
+				<div class="sub_container">
+					<p>${review.rating}</p>
+					<h5>${review.user.username}</h5>
+				</div>
+
+				<p>${review.textBody}</p>
+
+				<div class="edit_button_spacer">
+					<c:choose>
+						<c:when test="${review.user.email == currentUser.email}">
+							<a
+								href="/caseStudy/drones/${currentDrone.droneId}/review/${review.rId}/edit">Edit</a>
+						</c:when>
+					</c:choose>
+				</div>
+
 			</div>
 		</c:forEach>
 

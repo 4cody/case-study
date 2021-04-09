@@ -3,10 +3,39 @@ Case study to demonstrate the skills and technologies learned during a 10 week t
 We are learning Java and Spring MVC
 
 # Project Title #
-Cedar Drone
+#### Cedar Drone
 
 # Idea #
 The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone.  The value here is for community of people to have a place to congregate online and exchange ideas and discuss all things drone.  This is the ideal.  For the purpose of the project with the given time and requirements, I will be focusing on the functionality needed in order to create users and for those users to be able to leave reviews on different drones.  These drones "veiws" should have a specs table their reviews visible. 
+
+# User Stories #
+- As a User I want to be able to leave reviews on drones to inform others aboout a drone
+- As a Consumer I want to be able to view drone specs and reviews in order to make an informed buying decision
+- As a User I want to be able edit or delete my review from a drone
+
+## Technologies Used 
+- Java 
+- SQL
+- Spring MVC
+- JSTL
+- Spring Data JPA
+- HTML/CSS/JavaScript
+
+## Road-Blocks and Issues ##
+While getting back-end functionality working I ran into a few notable hurdles.  The first of which was passing data between controller methods, in particular passing the drone information along when a user leaves a review.  I have to still tie in the user information to a review but for the sake of progress and time, for now I will just have a drone ID attached to a review.  
+
+I was having trouble getting Spring data JPA to create and save the relationships in the data base ; ie when a user leaves a review on a given drone the review would save but a relationship record wouldn't be created.  As a work around I attempted to do this all manually by creating the review row and using other data to create a relationship row (drone_review)and this all deteriorated rather quickly.  After some guidance I resloved to change how my entities were related to eachother which very well may have been the root cause to begin with, and was able to have a drone store a list of reviews.  The ideal component of this would be to have a user store a list of reviews they've left on drones, or to incorporate the user ID in the review to prevent multiple reviews on the same drone from a single user.  The user should only be able to edit their review.
+
+While working on full crud functionality I ran into a problem when trying to work out a review being deleted, errors occured due to the reviews being owned by the drone entity in a 'reviews list'.  This was not able to be resolved in time to turn in.  To fix this I need to change how the entities relate to one another and change how some service methods function.
+
+
+# Front End # 
+
+My wire frames are just sketches on a notepad so there's not much to show from that.
+
+This site map that was mostly adhered to with slight changes during development.
+
+[![Site-map.png](https://i.postimg.cc/6qCcSXrb/Site-map.png)](https://postimg.cc/H8sbcFPb)
 
 # Backend #
 
@@ -29,7 +58,4 @@ It's the end of week 9 and Alas! I've spent no more time on my case-study but ha
 
 As I've started to add the skeleton files that I know I'll need and build out some of the folder structure I'm thinking I'll need, I realized that I am just doing what I've always done when attempting a project.  I just start coding.  I've decided to back up a little bit and give myself a greater foundation with more planning.  The idea I have is enough to go off of but I havn't taken the time to design things before building.. and this isn't the SDLC way.  I'm going to start with writing user stories that would get me to an MVC, from there I will design some from end wire frames.  I think with these things and the database mapped out I could start implementation and revist these particulars as needed.
 
-## Road-Blocks and Issues ##
-While working on getting back-end functionality working I ran into a few notable hurdles.  The first of which was passing data between controller methods, in particular in passing the drone information along when a user leaves a review.  I have to still tie in the user information to a review but for the sake of progress and time, for now I will just have a drone ID attached to a review.  
-
-I was having trouble getting Spring data JPA to create and save the relationships in the data base ; ie when a user leaves a review on a given drone the review would save but a relationship record wouldn't be created.  As a work around I attempted to do this all manually by creating the review row and using other data to create a relationship row (drone_review)and this all deteriorated rather quickly.  After some guidance I resloved to change how my entities were related to eachother which very well may have been the root cause to begin with, and was able to have a drone store a list of reviews.  The ideal component of this would be to have a user store a list of reviews they've left on drones, or to incorporate the user ID in the review to prevent multiple reviews on the same drone from a single user.  The user should only be able to edit their review.
+Much of what is done and being turned in was a bit of a scramble to make the deadline.  I will have to address some styling for the presentaion that won't be in the 'final turn in' for a grade.  I've ran into a number of unforseen issues that seem to arise from a poor program design on my part..  Live and learn..

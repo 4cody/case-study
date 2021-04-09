@@ -6,6 +6,10 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: rgb(184, 184, 181);
+}
+
 .container {
 	width: 900px;
 	height: 600px;
@@ -75,6 +79,3 @@ table tbody tr td {
 	text-align: right;
 }
 
-.review_container {
-	display: flex;
-}

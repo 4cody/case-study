@@ -1,5 +1,6 @@
 package com.cedardrone.services;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,11 @@ public class DroneService {
 		double currentRating = d.getRating();
 		int amountOfReviews = droneReviews.size();
 		double newRating = (reviewRating + currentRating) / amountOfReviews;
-		d.setRating(newRating);
+		
+		// Format to 1 decimal place and set
+		DecimalFormat numberFormat = new DecimalFormat("#.0");
+		double formatedTotal = Double.parseDouble(numberFormat.format(newRating));
+		d.setRating(formatedTotal);
 		
 		// Persist changes
 		saveDrone(d);
@@ -77,7 +82,12 @@ public class DroneService {
 			for(Review r: droneReviews) {
 				tempTotal += r.getRating();
 			}
-			d.setRating(tempTotal = tempTotal / droneReviews.size());
+			tempTotal = tempTotal / droneReviews.size();
+			
+			// Format to 1 decimal place and set
+			DecimalFormat numberFormat = new DecimalFormat("#.0");
+			double formatedTotal = Double.parseDouble(numberFormat.format(tempTotal));
+			d.setRating(formatedTotal);
 			
 			// Persist changes
 			saveDrone(d);
