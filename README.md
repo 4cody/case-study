@@ -13,8 +13,7 @@ The website is for drone/quad copter reviews.  It's target audience would be dro
 ## DataBase ##
 This project is using SQL for it's database as that's what we've been learning during the training.  There are four tables, user, review, drone, and user_review.  These represent the data that will be needed to store and persist information on the site.  The first 3 are models for the entities respectively with user_review aggregating the primary keys for a given review.  As such all of the models have a one to many relationship with the user_review table.
 
-[![db-map-02.png](https://i.postimg.cc/Cx13Hznp/db-map-02.png)](https://postimg.cc/2Vs9Cjx0)
-
+[![db-map-02.png](https://i.postimg.cc/MTpk6kjP/db-map-02.png)](https://postimg.cc/94KgbnbZ)
 
 # Dev Blog #
 
