@@ -52,6 +52,10 @@ td {
 </style>
 </head>
 <body>
+	<div style="margin: 2rem auto; width: 900px;">
+		<%@include file="nav.html"%>
+	</div>
+	
 	<div class="container">
 		<table>
 			<thead>
