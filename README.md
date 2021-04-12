@@ -9,7 +9,7 @@ We are learning Java and Spring MVC
 The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone.  The value here is for community of people to have a place to congregate online and exchange ideas and discuss all things drone.  This is the ideal.  For the purpose of the project with the given time and requirements, I will be focusing on the functionality needed to create users and for those users to be able to leave reviews on a given drone.  These drone "veiws" should have a specs table and their reviews should be by visible. 
 
 # User Stories #
-- As a User I want to be able to leave reviews on drones to inform others aboout a drone
+- As a User I want to be able to leave reviews on drones to inform others aboout a specific model
 - As a Consumer I want to be able to view drone specs and reviews in order to make an informed buying decision
 - As a User I want to be able edit or delete my review from a drone so that I can keep information up to date
 - As a User I want to be have the ability to see all reviews I've left so I can easily find and edit a given review
