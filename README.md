@@ -31,20 +31,18 @@ I was having trouble getting Spring data JPA to create and save the relationship
 
 While working on full crud functionality I ran into a problem when trying to work out a review being deleted,  "Cannot delete or update a parent row: a foreign key constraint fails" and I've come to understand this error is occuring due to the reviews being owned by the drone entity in a 'reviews list'.  To remedy this I need to re-design how the entites relate to one another, specifcally removing the current relationship of a review to it's respective drone.  A differnt approach I would take would keep the drone, review and user records indedpendent and have an aggregate table that stores a composite key every time a review is create that is comprised of the 3 respective primary keys. 
 
-
-# Front End # 
-
-
-This site map that was mostly adhered to with slight changes during development.
-
-[![Site-map.png](https://i.postimg.cc/6qCcSXrb/Site-map.png)](https://postimg.cc/H8sbcFPb)
-
 # Backend #
 
 ## DataBase ##
 This project is using SQL for it's database.
 
 [![db-map-02.png](https://i.postimg.cc/MTpk6kjP/db-map-02.png)](https://postimg.cc/94KgbnbZ)
+
+# Front End # 
+
+This site map that was mostly adhered to with slight changes during development.
+
+[![Site-map.png](https://i.postimg.cc/6qCcSXrb/Site-map.png)](https://postimg.cc/H8sbcFPb)
 
 # Dev Blog #
 
