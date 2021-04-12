@@ -33,7 +33,6 @@ While working on full crud functionality I ran into a problem when trying to wor
 
 # Front End # 
 
-My wire frames are just sketches on a notepad so there's not much to show from that.
 
 This site map that was mostly adhered to with slight changes during development.
 
@@ -42,7 +41,7 @@ This site map that was mostly adhered to with slight changes during development.
 # Backend #
 
 ## DataBase ##
-This project is using SQL for it's database as that's what we've been learning during the training.  There are four tables, user, review, drone, and user_review.  These represent the data that will be needed to store and persist information on the site.  The first 3 are models for the entities respectively with user_review aggregating the primary keys for a given review.  As such all of the models have a one to many relationship with the user_review table.
+This project is using SQL for it's database.
 
 [![db-map-02.png](https://i.postimg.cc/MTpk6kjP/db-map-02.png)](https://postimg.cc/94KgbnbZ)
 
