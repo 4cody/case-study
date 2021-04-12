@@ -14,7 +14,7 @@ The website is for drone/quad copter reviews.  It's target audience would be dro
 - As a User I want to be able edit or delete my review from a drone so that I can keep information up to date
 - As a User I want to be have the ability to see all reviews I've left so I can easily find and edit a given review
 - As a developer I want to prevent users from leaving multiple reviews on a single drone to prevent spam
-- As a web site/platform I want to be able to store user ratings on a given drone in order to have a air of authority in the space
+- As a web site/platform I want to be able to store user ratings on a given drone in order to have an air of authority in the space
 
 ## Technologies Used 
 - Java 
