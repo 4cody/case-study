@@ -120,7 +120,7 @@
 	<div style="margin: 2rem auto; width: 900px;">
 
 		<c:forEach items="${reviewList}" var="review">
-			<div class="review_container">
+			<div class="review_container" style="background-color: white;">
 
 
 				<div class="sub_container">
