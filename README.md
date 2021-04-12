@@ -19,7 +19,7 @@ The website is for drone/quad copter reviews.  It's target audience would be dro
 - Java 
 - SQL
 - Spring MVC
-- JSTL
+- JSP/JSTL
 - Spring Data JPA
 - HTML/CSS/JavaScript
 
