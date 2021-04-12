@@ -1,12 +1,12 @@
 # What #
-Case study to demonstrate the skills and technologies learned during a 10 week traing with TEKsystems.
+Case study to demonstrate the skills and technologies learned during a 10 week training with TEKsystems.
 We are learning Java and Spring MVC
 
 # Project Title #
 #### Cedar Drone
 
 # Idea #
-The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone.  The value here is for community of people to have a place to congregate online and exchange ideas and discuss all things drone.  This is the ideal.  For the purpose of the project with the given time and requirements, I will be focusing on the functionality needed in order to create users and for those users to be able to leave reviews on different drones.  These drone "veiws" should have a specs table their reviews visible. 
+The website is for drone/quad copter reviews.  It's target audience would be drone enthusiasts and those in the market for a drone.  The value here is for community of people to have a place to congregate online and exchange ideas and discuss all things drone.  This is the ideal.  For the purpose of the project with the given time and requirements, I will be focusing on the functionality needed to create users and for those users to be able to leave reviews on a given drone.  These drone "veiws" should have a specs table and their reviews should be by visible. 
 
 # User Stories #
 - As a User I want to be able to leave reviews on drones to inform others aboout a drone
@@ -14,6 +14,7 @@ The website is for drone/quad copter reviews.  It's target audience would be dro
 - As a User I want to be able edit or delete my review from a drone so that I can keep information up to date
 - As a User I want to be have the ability to see all reviews I've left so I can easily find and edit a given review
 - As a developer I want to prevent users from leaving multiple reviews on a single drone to prevent spam
+- As a web site/platform I want to be able to store user ratings on a given drone in order to have a air of authority in the space
 
 ## Technologies Used 
 - Java 
